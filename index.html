@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliel's IT Roadmap · Warehouse to Tech Career</title>
+<meta name="description" content="A no-college, cert-based roadmap into IT: on-base DoD jobs and remote careers in security, cloud, and AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #0f1520;
+    --card: #131b29;
+    --card-hover: #182234;
+    --line: #223047;
+    --text: #e8edf5;
+    --muted: #93a1b8;
+    --accent: #22d3ee;
+    --accent2: #34d399;
+    --gold: #fbbf24;
+    --red: #f87171;
+    --grad: linear-gradient(90deg, #22d3ee, #34d399);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, .gear-num { font-family: 'Space Grotesk', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,14,20,.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1040px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; }
+  .logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nav-links { display: flex; gap: 22px; }
+  .nav-links a { color: var(--muted); font-size: .88rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero { padding: 90px 0 70px; position: relative; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(600px 300px at 20% 0%, rgba(34,211,238,.10), transparent 70%),
+      radial-gradient(500px 300px at 85% 20%, rgba(52,211,153,.08), transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px; font-size: .78rem; color: var(--muted);
+    background: var(--bg2); margin-bottom: 22px;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 10px var(--accent2); }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.12; font-weight: 700; letter-spacing: -.02em; }
+  .hero h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.sub { margin-top: 20px; font-size: 1.1rem; color: var(--muted); max-width: 620px; }
+  .hero .cta-row { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 24px; border-radius: 10px;
+    font-weight: 600; font-size: .95rem; transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn-primary { background: var(--grad); color: #06222a; box-shadow: 0 4px 24px rgba(34,211,238,.25); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); background: var(--bg2); }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  .kicker {
+    font-family: 'JetBrains Mono'; font-size: .75rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); letter-spacing: -.01em; margin-bottom: 14px; }
+  .lede { color: var(--muted); max-width: 680px; font-size: 1.02rem; }
+
+  /* Cards */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+  @media (max-width: 800px) { .grid3 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 26px; transition: border-color .2s, background .2s;
+  }
+  .card:hover { border-color: #2e4160; background: var(--card-hover); }
+  .card .icon { font-size: 1.6rem; margin-bottom: 14px; display: block; }
+  .card h3 { font-size: 1.08rem; margin-bottom: 8px; }
+  .card p { font-size: .92rem; color: var(--muted); }
+  .card p strong { color: var(--text); }
+
+  /* Cheat code panel */
+  .cheat {
+    margin-top: 36px; border-radius: 16px; padding: 34px;
+    background: linear-gradient(135deg, rgba(34,211,238,.08), rgba(52,211,153,.06));
+    border: 1px solid rgba(34,211,238,.25);
+  }
+  .cheat h3 { font-size: 1.35rem; margin-bottom: 10px; }
+  .cheat p { color: var(--muted); max-width: 720px; }
+  .cheat p strong { color: var(--text); }
+  .cheat .tag {
+    display: inline-block; font-family: 'JetBrains Mono'; font-size: .72rem;
+    background: rgba(34,211,238,.15); color: var(--accent);
+    border-radius: 6px; padding: 4px 10px; margin-bottom: 16px; letter-spacing: .08em;
+  }
+
+  /* Gear roadmap */
+  .roadmap { position: relative; margin-top: 48px; }
+  .roadmap::before {
+    content: ''; position: absolute; left: 27px; top: 10px; bottom: 10px;
+    width: 2px; background: var(--line);
+  }
+  .gear { position: relative; padding: 0 0 44px 84px; }
+  .gear:last-child { padding-bottom: 0; }
+  .gear-num {
+    position: absolute; left: 0; top: 0;
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--card); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem; font-weight: 700; color: var(--accent);
+    z-index: 1;
+  }
+  .gear.done-able .gear-num { background: linear-gradient(135deg, rgba(34,211,238,.18), rgba(52,211,153,.14)); border-color: rgba(34,211,238,.4); }
+  .gear .when {
+    font-family: 'JetBrains Mono'; font-size: .72rem; color: var(--accent2);
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .gear h3 { font-size: 1.25rem; margin-bottom: 8px; }
+  .gear p { color: var(--muted); font-size: .95rem; max-width: 700px; }
+  .gear p strong { color: var(--text); }
+  .gear ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); font-size: .93rem; }
+  .gear li { margin-bottom: 6px; }
+  .gear li strong { color: var(--text); }
+  .gear .cost { display: inline-block; margin-top: 12px; font-family: 'JetBrains Mono'; font-size: .78rem; color: var(--gold); background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.2); border-radius: 6px; padding: 4px 10px; }
+
+  /* Tracks tabs */
+  .tabs { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+  .tab {
+    padding: 10px 20px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg2); color: var(--muted); font-weight: 600; font-size: .9rem;
+    cursor: pointer; font-family: 'Space Grotesk'; transition: all .2s;
+  }
+  .tab.active { background: var(--grad); color: #06222a; border-color: transparent; }
+  .track-panel { display: none; margin-top: 24px; }
+  .track-panel.active { display: block; animation: fadeUp .35s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .track-panel .card { margin-bottom: 0; }
+  .track-inner { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+  @media (max-width: 800px) { .track-inner { grid-template-columns: 1fr; } }
+  .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+  .pill {
+    font-family: 'JetBrains Mono'; font-size: .74rem; padding: 5px 12px;
+    border-radius: 999px; border: 1px solid var(--line); color: var(--accent); background: rgba(34,211,238,.06);
+  }
+
+  /* Jobs table */
+  .jobs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+  @media (max-width: 800px) { .jobs-grid { grid-template-columns: 1fr; } }
+  .job-col h3 { font-size: 1.1rem; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  .job-col .sub { font-size: .85rem; color: var(--muted); margin-bottom: 16px; }
+  .job {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 18px; margin-bottom: 12px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  }
+  .job .name { font-weight: 600; font-size: .95rem; }
+  .job .req { display: block; font-size: .8rem; color: var(--muted); margin-top: 3px; }
+  .job .pay { font-family: 'JetBrains Mono'; font-size: .8rem; color: var(--accent2); white-space: nowrap; }
+
+  /* AI section */
+  .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+  @media (max-width: 800px) { .ai-grid { grid-template-columns: 1fr; } }
+  .ai-card { border-radius: 14px; padding: 26px; border: 1px solid; }
+  .ai-card.bad { background: rgba(248,113,113,.05); border-color: rgba(248,113,113,.25); }
+  .ai-card.good { background: rgba(52,211,153,.05); border-color: rgba(52,211,153,.25); }
+  .ai-card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+  .ai-card.bad h3 { color: var(--red); }
+  .ai-card.good h3 { color: var(--accent2); }
+  .ai-card ul { padding-left: 20px; color: var(--muted); font-size: .93rem; }
+  .ai-card li { margin-bottom: 8px; }
+  .quote {
+    margin-top: 28px; padding: 24px 28px; border-left: 3px solid var(--accent);
+    background: var(--bg2); border-radius: 0 12px 12px 0;
+    font-size: 1.05rem; font-style: italic; color: var(--text);
+  }
+
+  /* Cost table */
+  table { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: .92rem; }
+  th, td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+  th { font-family: 'Space Grotesk'; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  td.cost-num { font-family: 'JetBrains Mono'; color: var(--gold); white-space: nowrap; }
+  td .free { color: var(--accent2); }
+  tr.total td { border-bottom: none; font-weight: 700; color: var(--text); }
+  .table-scroll { overflow-x: auto; }
+  .note { font-size: .82rem; color: var(--muted); margin-top: 14px; }
+
+  /* Start checklist */
+  .steps { margin-top: 36px; display: grid; gap: 14px; }
+  .step {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px;
+  }
+  .step .n {
+    font-family: 'Space Grotesk'; font-weight: 700; font-size: 1rem;
+    min-width: 38px; height: 38px; border-radius: 10px;
+    background: var(--grad); color: #06222a;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h3 { font-size: 1rem; margin-bottom: 4px; }
+  .step p { font-size: .9rem; color: var(--muted); }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 44px 0 60px; margin-top: 40px; }
+  footer .flag { font-size: 1.4rem; }
+  footer p { color: var(--muted); font-size: .9rem; margin-top: 10px; }
+  footer .dale { font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.4rem; margin-top: 18px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Reveal animation is applied additively via JS (Web Animations API).
+     Content stays visible if JS is unavailable. */
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">ELIEL<span>.EXE</span></div>
+    <div class="nav-links">
+      <a href="#why">Why you</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#costs">Costs</a>
+      <a href="#start">Start</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> Built for Eliel · No college required · 2026</div>
+    <h1>From the warehouse<br>to a <span class="grad">career in IT.</span></h1>
+    <p class="sub">A straight-line plan: which certificates to get, in what order, what they cost, and exactly which jobs they unlock, both on base and fully remote. No degree. No fluff. Just the route.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#roadmap">Show me the route</a>
+      <a class="btn btn-ghost" href="#start">What do I do this week?</a>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="kicker">// Your starting position</div>
+    <h2>You have three advantages most people don't</h2>
+    <p class="lede">This isn't motivation-poster talk. These are real, structural advantages in the job market you're aiming at.</p>
+    <div class="grid3">
+      <div class="card reveal">
+        <span class="icon">🇺🇸</span>
+        <h3>You're a US citizen</h3>
+        <p>Being Puerto Rican means you're a US citizen, and that makes you <strong>eligible for a security clearance</strong>. Most people on Earth can never get one. Cleared IT workers earn more and get hired faster, because the clearance is often harder to find than the skills.</p>
+      </div>
+      <div class="card reveal">
+        <span class="icon">🪖</span>
+        <h3>You're already on base</h3>
+        <p>You work inside a US military installation. The IT jobs there (government and contractor) hire from <strong>people who are already local, already badged, already known</strong>. You can literally walk to the offices that will hire you.</p>
+      </div>
+      <div class="card reveal">
+        <span class="icon">🎓</span>
+        <h3>DoD doesn't need your diploma</h3>
+        <p>Department of Defense rules (called <strong>DoD 8140</strong>) qualify people for IT jobs based on <strong>certifications, not degrees</strong>. A $400 exam you can pass with free YouTube training counts. A 4-year degree is optional in this world.</p>
+      </div>
+    </div>
+
+    <div class="cheat reveal">
+      <span class="tag">THE CHEAT CODE</span>
+      <h3>CompTIA Security+ is the key that opens the base doors</h3>
+      <p>Almost every IT job touching DoD networks legally requires a baseline certification, and <strong>Security+ is the standard one</strong>. Help desk at the base network center, contractor field tech, sysadmin support: they all list it. That's why this whole roadmap points at Security+ by the end of year one. Once you hold it and can get a clearance, <strong>you are in a small pool of people that government contractors compete to hire</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" style="background: var(--bg2);">
+  <div class="wrap">
+    <div class="kicker">// The route</div>
+    <h2>Shift through the gears 🏁</h2>
+    <p class="lede">One year, five gears. Each gear is a milestone with a clear finish line. Don't skip gears, but don't stay parked either. The timeline assumes you study 5 to 8 hours a week while keeping your job.</p>
+
+    <div class="roadmap">
+      <div class="gear reveal done-able">
+        <div class="gear-num">1st</div>
+        <div class="when">Months 0 – 2 · Free</div>
+        <h3>Test drive: find out if you like this</h3>
+        <p>Before spending a cent, put in a few weeks and see if this world clicks for you.</p>
+        <ul>
+          <li>Watch <strong>Professor Messer's free CompTIA A+ course</strong> on YouTube. It's the standard free training, and it's genuinely good.</li>
+          <li>Get hands-on: open up an old PC, reinstall Windows on something, mess with your phone's settings, break stuff and fix it.</li>
+          <li>Optional paid shortcut: the <strong>Google IT Support Certificate</strong> on Coursera (about $49/month, most finish in 3 to 5 months). Nice resume line, not required.</li>
+        </ul>
+        <span class="cost">Cost: $0</span>
+      </div>
+
+      <div class="gear reveal">
+        <div class="gear-num">2nd</div>
+        <div class="when">Months 2 – 6</div>
+        <h3>CompTIA A+ · your first real cert</h3>
+        <p>A+ proves you can support computers, printers, phones, and users. It's the standard entry ticket for help desk jobs everywhere.</p>
+        <ul>
+          <li>Two exams (Core 1 and Core 2), roughly <strong>$250+ each</strong>. Check current prices at comptia.org.</li>
+          <li>Study: Professor Messer (free) + practice exams (ExamCompass is free, or Messer's paid practice tests).</li>
+          <li><strong>Start applying to entry help desk jobs the day you pass.</strong> Don't wait until you feel "ready." Nobody ever does.</li>
+        </ul>
+        <span class="cost">Cost: ~$500 in exams</span>
+      </div>
+
+      <div class="gear reveal">
+        <div class="gear-num">3rd</div>
+        <div class="when">Months 6 – 9 · Optional but smart</div>
+        <h3>CompTIA Network+ · learn how it all connects</h3>
+        <p>Networking is the plumbing of IT. Understanding it makes every job after this easier.</p>
+        <ul>
+          <li>One exam, roughly <strong>$370</strong>.</li>
+          <li>Honest note: <strong>if money is tight, you can skip straight to Security+.</strong> Network+ makes Security+ easier and looks good on a resume, but Security+ is the one employers require.</li>
+        </ul>
+        <span class="cost">Cost: ~$370 (skippable)</span>
+      </div>
+
+      <div class="gear reveal done-able">
+        <div class="gear-num">4th</div>
+        <div class="when">Months 9 – 12 · The big one</div>
+        <h3>CompTIA Security+ · the DoD door opener</h3>
+        <p>This is the cert this whole plan is built around. One exam, roughly <strong>$400</strong>, and it satisfies the DoD 8140 baseline that base IT jobs demand.</p>
+        <ul>
+          <li>Study: Professor Messer's free Security+ course + practice exams until you score 85%+ consistently.</li>
+          <li>The moment you pass: make a <strong>USAJOBS.gov</strong> account and search IT jobs at your installation, and check contractor career pages (GDIT, Leidos, Vectrus, KBR all staff bases in Germany).</li>
+          <li>When a job offers to <strong>sponsor your security clearance, take it</strong>, even if the pay is average. The clearance is worth more than the first salary.</li>
+        </ul>
+        <span class="cost">Cost: ~$400</span>
+      </div>
+
+      <div class="gear reveal">
+        <div class="gear-num">5th</div>
+        <div class="when">Year 2+ · Cruising speed</div>
+        <h3>Pick a lane and specialize</h3>
+        <p>By now you're working in IT and getting paid to learn. Year two is where you pick a specialty track (below) and your salary starts climbing seriously. This is also where remote work opens up.</p>
+        <span class="cost">Employer often pays for these certs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tracks">
+  <div class="wrap">
+    <div class="kicker">// Year 2 and beyond</div>
+    <h2>Three lanes. All of them pay. Pick what pulls you.</h2>
+    <p class="lede">You don't have to decide today. You'll know by the time you get there, because you'll have been working around all three.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-track="cyber">🛡️ Cybersecurity</button>
+      <button class="tab" data-track="cloud">☁️ Cloud</button>
+      <button class="tab" data-track="ai">🤖 AI Ops</button>
+    </div>
+
+    <div class="track-panel active" id="track-cyber">
+      <div class="track-inner">
+        <div class="card">
+          <h3>Defend networks for a living</h3>
+          <div class="pill-row"><span class="pill">CySA+</span><span class="pill">SSCP</span><span class="pill">later: CISSP</span></div>
+          <p>The natural next step after Security+. You'd work in a Security Operations Center (SOC) watching for and responding to attacks, or as a security specialist on base. <strong>Best fit with a clearance</strong>: cleared cyber roles are among the best-paid jobs that don't need a degree, and DoD has a permanent shortage.</p>
+          <p style="margin-top:10px;">Remote-friendly: SOC analyst roles are commonly remote in the US market.</p>
+        </div>
+        <div class="card">
+          <h3>Why it's AI-proof</h3>
+          <p>AI makes attacks cheaper and more common, which means <strong>more defense jobs, not fewer</strong>. Companies need humans who are accountable for security decisions. The tooling changes; the need grows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="track-panel" id="track-cloud">
+      <div class="track-inner">
+        <div class="card">
+          <h3>Run the infrastructure everything lives on</h3>
+          <div class="pill-row"><span class="pill">AWS Cloud Practitioner</span><span class="pill">AWS Solutions Architect Assoc.</span><span class="pill">or Azure AZ-104</span></div>
+          <p>Everything runs in the cloud now, including the military (they're huge Azure customers). Cloud admins and cloud support engineers manage servers that live in data centers, which means <strong>the work is remote by nature</strong>. This is the most direct route to a work-from-anywhere career.</p>
+          <p style="margin-top:10px;">Start with AWS Cloud Practitioner or Azure AZ-900 (both beginner-level, ~$100 exams) to taste it.</p>
+        </div>
+        <div class="card">
+          <h3>Why it's AI-proof</h3>
+          <p>Every AI product runs on cloud infrastructure. The AI boom is literally a <strong>cloud spending boom</strong>. Someone has to build, secure, and babysit all of it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="track-panel" id="track-ai">
+      <div class="track-inner">
+        <div class="card">
+          <h3>Be the person who makes AI actually work</h3>
+          <div class="pill-row"><span class="pill">Azure AI-900</span><span class="pill">Python basics</span><span class="pill">AI tool fluency</span></div>
+          <p>This one is less a cert path and more a <strong>multiplier on the other two</strong>. Learn to use AI tools seriously (automating tasks, writing scripts with AI help, building small workflows), add basic Python, and you become the tech on the team who gets 3x more done. Small businesses everywhere need "the person who sets up AI for us," and almost nobody without a degree is competing for that yet.</p>
+        </div>
+        <div class="card">
+          <h3>The honest truth about AI and jobs</h3>
+          <p>AI is killing the boring half of IT (password resets, ticket triage). It is <strong>not</strong> killing hands-on hardware work, security, infrastructure, or people who wield AI well. Position yourself on the winning side of that line from day one.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote reveal">"AI won't take your job. A person using AI will. So be that person."</div>
+  </div>
+</section>
+
+<section id="jobs" style="background: var(--bg2);">
+  <div class="wrap">
+    <div class="kicker">// What this actually unlocks</div>
+    <h2>The jobs, with real numbers</h2>
+    <p class="lede">Ranges are rough US-market figures to show the shape of the ladder, not promises. On-base pay in Germany varies by position type; cleared and contractor roles trend higher.</p>
+
+    <div class="jobs-grid">
+      <div class="job-col reveal">
+        <h3>🪖 On base (near you)</h3>
+        <div class="sub">Unlocked by A+ → Security+ · clearance sponsorship likely</div>
+        <div class="job"><div><span class="name">IT Help Desk / Service Desk</span><span class="req">After A+, easier with Security+</span></div><span class="pay">$40–55k</span></div>
+        <div class="job"><div><span class="name">Field / Desktop Support Tech (contractor)</span><span class="req">Security+ · GDIT, Leidos, Vectrus, KBR</span></div><span class="pay">$50–70k</span></div>
+        <div class="job"><div><span class="name">Network / Sysadmin Support</span><span class="req">Security+ + Network+ + 1yr experience</span></div><span class="pay">$60–85k</span></div>
+        <div class="job"><div><span class="name">Cyber / ISSO roles (year 2-3)</span><span class="req">Security+ → CySA+ + clearance</span></div><span class="pay">$80–110k+</span></div>
+      </div>
+      <div class="job-col reveal">
+        <h3>🌍 Remote (from anywhere)</h3>
+        <div class="sub">Unlocked by certs + 1 to 2 years of any IT experience</div>
+        <div class="job"><div><span class="name">Remote Service Desk / MSP Tech</span><span class="req">A+, customer skills, home office</span></div><span class="pay">$40–55k</span></div>
+        <div class="job"><div><span class="name">SOC Analyst (Tier 1)</span><span class="req">Security+ → CySA+</span></div><span class="pay">$55–80k</span></div>
+        <div class="job"><div><span class="name">Cloud Support Engineer</span><span class="req">AWS SAA or Azure AZ-104</span></div><span class="pay">$70–100k</span></div>
+        <div class="job"><div><span class="name">AI-fluent IT generalist / automation tech</span><span class="req">Any track + AI tools + Python basics</span></div><span class="pay">$60–100k</span></div>
+      </div>
+    </div>
+
+    <div class="ai-grid">
+      <div class="ai-card bad reveal">
+        <h3>⚠️ Jobs AI is eating (don't aim here)</h3>
+        <ul>
+          <li>Pure data entry and basic ticket-forwarding roles</li>
+          <li>"Password reset" call centers with no hands-on work</li>
+          <li>Anything where you only follow a script</li>
+        </ul>
+      </div>
+      <div class="ai-card good reveal">
+        <h3>✅ Jobs AI is feeding (aim here)</h3>
+        <ul>
+          <li>Hands-on hardware, networks, and on-site support</li>
+          <li>Security: more AI means more attacks means more defenders</li>
+          <li>Cloud infrastructure: AI runs on it, someone must run <em>it</em></li>
+          <li>Techs who use AI tools to work 3x faster than the next guy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="costs">
+  <div class="wrap">
+    <div class="kicker">// The bill</div>
+    <h2>Total cost of the whole first year</h2>
+    <p class="lede">Compare this to one semester of college. Prices are approximate 2026 figures; always check comptia.org for current exam vouchers, and look for discount vouchers before you book.</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Item</th><th>Cost</th><th>Free alternative / note</th></tr></thead>
+        <tbody>
+          <tr><td>Study material (all certs)</td><td class="cost-num"><span class="free">$0</span></td><td>Professor Messer on YouTube covers A+, Network+, Security+</td></tr>
+          <tr><td>Practice exams</td><td class="cost-num">$0–50</td><td>ExamCompass free; Messer's paid sets are worth it</td></tr>
+          <tr><td>CompTIA A+ (2 exams)</td><td class="cost-num">~$500</td><td>The entry ticket</td></tr>
+          <tr><td>CompTIA Network+</td><td class="cost-num">~$370</td><td>Skippable if budget is tight</td></tr>
+          <tr><td>CompTIA Security+</td><td class="cost-num">~$400</td><td>The DoD door opener. Do not skip.</td></tr>
+          <tr class="total"><td>Total, full route</td><td class="cost-num">~$1,300</td><td>~$900 if you skip Network+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">💡 Spread over 12 months that's about $75 to $110 a month. Also worth doing: ask your HR whether your employer offers any tuition or education assistance for employees. Some do, and five minutes of asking could cover your exams.</p>
+  </div>
+</section>
+
+<section id="start" style="background: var(--bg2);">
+  <div class="wrap">
+    <div class="kicker">// Ignition</div>
+    <h2>Do these three things this week</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">1</div>
+        <div>
+          <h3>Watch the first 5 Professor Messer A+ videos</h3>
+          <p>Search "Professor Messer A+ 220-1201" on YouTube. Costs nothing. If you're still curious after 5 videos, this field is for you.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="n">2</div>
+        <div>
+          <h3>Create a USAJOBS.gov account and window-shop</h3>
+          <p>Search IT jobs at your installation right now, before you're qualified. Read what they require. You'll see Security+ everywhere, and you'll see the finish line you're driving toward.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="n">3</div>
+        <div>
+          <h3>Talk to the IT people on base</h3>
+          <p>You already work there. Find the people who fix the computers and ask them how they got in, and which contractors are hiring. On bases, jobs travel by word of mouth before they ever get posted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="flag">🇵🇷</span>
+    <p>Made for Eliel by Jose. Questions about any of this? You know where to find me, we'll talk on the next drive.</p>
+    <p>Links to keep: <a href="https://www.youtube.com/@professormesser" target="_blank" rel="noopener">Professor Messer</a> · <a href="https://www.comptia.org" target="_blank" rel="noopener">CompTIA</a> · <a href="https://www.usajobs.gov" target="_blank" rel="noopener">USAJOBS</a> · <a href="https://www.examcompass.com" target="_blank" rel="noopener">ExamCompass practice tests</a></p>
+    <div class="dale">Dale gas. 🏁</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal: additive animation only. If JS fails, everything is simply visible.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.animate(
+            [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 600, easing: 'ease-out' }
+          );
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  // Track tabs
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.track-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('track-' + tab.dataset.track).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
