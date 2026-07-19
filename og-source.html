@@ -4,102 +4,25 @@
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,800;1,8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@1,8..60,700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { width: 1200px; height: 630px; background: #0A0A0A; overflow: hidden; position: relative; font-family: 'Bricolage Grotesque', sans-serif; }
+  body {
+    width: 1200px; height: 630px; background: #0A0A0A;
+    overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
   .frame { position: absolute; inset: 26px; border: 1px solid rgba(196, 150, 60, 0.25); border-radius: 6px; }
-  .brand {
-    position: absolute; top: 60px; left: 70px;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 19px; font-weight: 700; letter-spacing: 0.14em; color: #E8E4DF;
-  }
-  .brand span { color: #C4963C; }
-  .tag {
-    position: absolute; top: 62px; right: 70px;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 14px; letter-spacing: 0.2em; color: #8A8A8A; text-transform: uppercase;
-  }
-  .head { position: absolute; left: 70px; top: 132px; }
-  .eyebrow {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 14px; letter-spacing: 0.24em; color: #C4963C;
-    text-transform: uppercase; margin-bottom: 20px;
-  }
-  h1 {
-    font-family: 'Source Serif 4', serif; font-weight: 800;
-    font-size: 58px; line-height: 1.08; letter-spacing: -0.02em; color: #E8E4DF;
-  }
-  h1 em { font-style: italic; font-weight: 700; color: #C4963C; }
-  svg.route { position: absolute; inset: 0; }
-  .n-label {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 13px; letter-spacing: 0.16em; fill: #8A8A8A; text-transform: uppercase;
-  }
-  .n-cert {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 15px; font-weight: 700; letter-spacing: 0.14em; fill: #E8E4DF;
-  }
-  .dale {
-    position: absolute; right: 70px; bottom: 54px;
-    font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 700;
-    font-size: 26px; color: #C4963C;
+  .dollar {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic; font-weight: 700;
+    font-size: 460px; line-height: 1; color: #C4963C;
+    padding-bottom: 30px;
   }
 </style>
 </head>
 <body>
   <div class="frame"></div>
-  <div class="brand">el<span>.</span>camino</div>
-  <div class="tag">Para Eliel · 2026</div>
-  <div class="head">
-    <div class="eyebrow">Twelve months · No degree</div>
-    <h1>You want out.<br>This is <em>the route.</em></h1>
-  </div>
-
-  <svg class="route" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
-    <!-- road band -->
-    <path id="road" d="M -40 560 C 240 556, 420 470, 610 420 C 800 370, 920 300, 1150 240"
-          stroke="rgba(196,150,60,0.13)" stroke-width="36" stroke-linecap="round"/>
-    <!-- dashed centerline -->
-    <path d="M -40 560 C 240 556, 420 470, 610 420 C 800 370, 920 300, 1150 240"
-          stroke="#C4963C" stroke-width="2.5" stroke-dasharray="16 20" opacity="0.85"/>
-
-    <!-- milestone 1: week 1 -->
-    <circle cx="205" cy="549" r="8" fill="#0A0A0A" stroke="#C4963C" stroke-width="3"/>
-    <text class="n-label" x="205" y="494" text-anchor="middle">Week 1</text>
-    <text class="n-cert" x="205" y="516" text-anchor="middle">AI CERTS</text>
-
-    <!-- milestone 2: month 6 -->
-    <circle cx="460" cy="459" r="8" fill="#0A0A0A" stroke="#C4963C" stroke-width="3"/>
-    <text class="n-label" x="460" y="497" text-anchor="middle">Month 6</text>
-    <text class="n-cert" x="460" y="519" text-anchor="middle">A+</text>
-
-    <!-- milestone 3: month 9 -->
-    <circle cx="700" cy="396" r="8" fill="#0A0A0A" stroke="#C4963C" stroke-width="3"/>
-    <text class="n-label" x="700" y="434" text-anchor="middle">Month 9</text>
-    <text class="n-cert" x="700" y="456" text-anchor="middle">SECURITY+</text>
-
-    <!-- milestone 4: month 12 -->
-    <circle cx="930" cy="297" r="8" fill="#0A0A0A" stroke="#C4963C" stroke-width="3"/>
-    <text class="n-label" x="930" y="335" text-anchor="middle">Month 12</text>
-    <text class="n-cert" x="930" y="357" text-anchor="middle">LINUX+</text>
-
-    <!-- finish: checkered flag + IT CAREER -->
-    <g transform="translate(1092, 218)">
-      <line x1="0" y1="0" x2="0" y2="34" stroke="#C4963C" stroke-width="2.5"/>
-      <g>
-        <rect x="0" y="0" width="9" height="7" fill="#C4963C"/>
-        <rect x="18" y="0" width="9" height="7" fill="#C4963C"/>
-        <rect x="9" y="7" width="9" height="7" fill="#C4963C"/>
-        <rect x="27" y="7" width="9" height="7" fill="#C4963C"/>
-        <rect x="0" y="14" width="9" height="7" fill="#C4963C"/>
-        <rect x="18" y="14" width="9" height="7" fill="#C4963C"/>
-        <rect x="0" y="0" width="36" height="21" fill="none" stroke="rgba(196,150,60,0.5)" stroke-width="1"/>
-      </g>
-    </g>
-    <text class="n-cert" x="1092" y="296" text-anchor="middle" fill="#C4963C">IT CAREER</text>
-  </svg>
-
-  <div class="dale">Dale gas.</div>
+  <div class="dollar">$</div>
 </body>
 </html>
